@@ -1,9 +1,12 @@
 import {
+  EuiPageHeader,
+  EuiPageHeaderSection,
   EuiPageTemplate,
   EuiSpacer,
   EuiTab,
   EuiTabs,
   EuiText,
+  EuiTitle,
 } from "@elastic/eui";
 import { useTabs } from "hooks";
 import { Fragment } from "react";
@@ -61,14 +64,20 @@ export const Page5 = () => {
   };
 
   return (
-    <div>
+    <Fragment>
       <EuiPageTemplate.Section grow={false} bottomBorder="extended">
-        Theming
+        <EuiPageHeader>
+          <EuiPageHeaderSection>
+            <EuiTitle size="l">
+              <h1>Theming</h1>
+            </EuiTitle>
+          </EuiPageHeaderSection>
+        </EuiPageHeader>
       </EuiPageTemplate.Section>
       <EuiPageTemplate.Section>
         <EuiTabs>{renderTabs()}</EuiTabs>
         {tabControls.selectedTabContent}
       </EuiPageTemplate.Section>
-    </div>
+    </Fragment>
   );
 };
