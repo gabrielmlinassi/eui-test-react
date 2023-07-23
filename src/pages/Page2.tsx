@@ -5,7 +5,7 @@ import {
   EuiTabs,
   EuiText,
 } from "@elastic/eui";
-import { useTabs } from "../hooks";
+import { useTabs } from "hooks";
 import { Fragment } from "react";
 
 const tabs = [
