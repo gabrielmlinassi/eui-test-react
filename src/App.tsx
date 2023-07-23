@@ -1,69 +1,22 @@
-import React, { useState } from "react";
-import { EuiPageTemplate, EuiSideNav } from "@elastic/eui";
+import "@elastic/eui/dist/eui_theme_light.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HomePage, Page1, Page2, Page3, Page4, Page5 } from "./pages";
+import { MainLayout } from "./layouts";
 
 function App() {
-  const [isSideNavOpenOnMobile, setisSideNavOpenOnMobile] = useState(false);
-
-  const toggleOpenOnMobile = () => {
-    setisSideNavOpenOnMobile(!isSideNavOpenOnMobile);
-  };
-
-  const sideNav = [
-    {
-      name: "Example Pages",
-      id: "example--id",
-      items: [
-        {
-          name: "Page 1",
-          id: "example-page-1--id",
-          href: "#page-1",
-          isSelected: false,
-        },
-        {
-          name: "Page 2",
-          id: "example-page-2--id",
-          href: "#page-2",
-          isSelected: false,
-        },
-        {
-          name: "Page 3",
-          id: "example-page-3--id",
-          href: "#page-3",
-          isSelected: false,
-        },
-        {
-          name: "Page 4",
-          id: "example-page-4--id",
-          href: "#page-4",
-          isSelected: false,
-        },
-        {
-          name: "Page 5",
-          id: "example-page-5--id",
-          href: "#page-5",
-          isSelected: false,
-        },
-      ],
-    },
-  ];
-
   return (
-    <EuiPageTemplate>
-      <EuiPageTemplate.Sidebar sticky>
-        <EuiSideNav
-          aria-label="Basic example"
-          mobileTitle="Basic example"
-          toggleOpenOnMobile={() => toggleOpenOnMobile()}
-          isOpenOnMobile={isSideNavOpenOnMobile}
-          style={{ width: 192 }}
-          items={sideNav}
-        />
-      </EuiPageTemplate.Sidebar>
-      <EuiPageTemplate.Section grow={false} bottomBorder="extended">
-        {"title"}
-      </EuiPageTemplate.Section>
-      <div>content</div>
-    </EuiPageTemplate>
+    <BrowserRouter>
+      <MainLayout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/page-1" element={<Page1 />} />
+          <Route path="/page-2" element={<Page2 />} />
+          <Route path="/page-3" element={<Page3 />} />
+          <Route path="/page-4" element={<Page4 />} />
+          <Route path="/page-5" element={<Page5 />} />
+        </Routes>
+      </MainLayout>
+    </BrowserRouter>
   );
 }
 
